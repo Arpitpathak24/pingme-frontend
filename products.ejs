@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - PingMe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .products-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #e8f5e9;
+        }
+        .products-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .products-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .buy-sticker {
+            margin-top: 20px;
+        }
+        .buy-sticker button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .buy-sticker button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Products</h1>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/products">Products</a>
+        <a href="/contact">Contact</a>
+        <% if (user) { %>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <a href="/login">Login</a>
+        <% } %>
+    </nav>
+    <div class="products-section">
+        <h1>Explore Our Products</h1>
+        <p>
+            Explore our wide range of custom QR code decals designed for cars, motorcycles, laptops, and more. 
+            Each product is crafted with precision and quality to ensure durability and aesthetic appeal.
+        </p>
+        <% if (user) { %>
+            <div class="buy-sticker">
+                <button onclick="location.href='/vehicle-details'">Buy Sticker Now</button>
+            </div>
+        <% } %>
+    </div>
+    <footer>
+        <p>&copy; 2025 PingMe. All rights reserved. | <a href="/terms">Terms</a> | <a href="/privacy">Privacy</a></p>
+    </footer>
+</body>
+</html>

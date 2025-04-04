@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PingMe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8f5e9;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .hero button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .hero button:hover {
+            background-color: #45a049;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .feature {
+            text-align: center;
+            max-width: 300px;
+        }
+        .feature img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to PingMe</h1>
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/products">Products</a>
+        <a href="/contact">Contact</a>
+        <% if (user) { %>
+            <a href="/logout">Logout</a>
+        <% } else { %>
+            <a href="/login">Login</a>
+        <% } %>
+    </nav>
+    <div class="hero">
+        <h1>Stay Connected with PingMe</h1>
+        <p>Your one-stop solution for seamless communication and vehicle management.</p>
+        <% if (user) { %>
+            <button onclick="location.href='/products'">Get Started</button>
+        <% } else { %>
+            <button onclick="location.href='/signup'">Get Started</button>
+        <% } %>
+    </div>
+    <div class="features">
+        <div class="feature">
+            <img src="/images/feature1.png" alt="Feature 1">
+            <h3>Easy Communication</h3>
+            <p>Connect with your network effortlessly using PingMe's advanced tools.</p>
+        </div>
+        <div class="feature">
+            <img src="/images/feature2.png" alt="Feature 2">
+            <h3>Vehicle Management</h3>
+            <p>Manage your vehicle details and documents with ease.</p>
+        </div>
+        <div class="feature">
+            <img src="/images/feature3.png" alt="Feature 3">
+            <h3>Secure Payments</h3>
+            <p>Make secure payments and download your stickers instantly.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 PingMe. All rights reserved. | <a href="/terms">Terms</a> | <a href="/privacy">Privacy</a></p>
+    </footer>
+</body>
+</html>
