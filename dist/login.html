@@ -93,7 +93,7 @@
         if (res.ok) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('userId', data.user._id); // optional
-          window.location.href = '/home.html';
+          window.location.href = '/index.html';
         } else {
           alert(data.message || 'Login failed');
         }
