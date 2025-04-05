@@ -1,107 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - PingMe</title>
-  <style>
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    form {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 400px;
-    }
-    h1 {
-      text-align: center;
-      color: #FFC107;
-      margin-bottom: 1rem;
-    }
-    input {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background-color: #FFC107;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #e0a800;
-    }
-    p {
-      text-align: center;
-      margin-top: 1rem;
-    }
-    a {
-      color: #FFC107;
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PingMe</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #FFC107;
+            margin-bottom: 1rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #FFC107;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e0a800;
+        }
+        p {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        a {
+            color: #FFC107;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <form id="loginForm">
-    <h1>Login</h1>
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-    <p><a href="/forgot-password.html">Forgot Password?</a></p>
-    <p>Don't have an account? <a href="/signup.html">Sign Up</a></p>
-  </form>
-
-  <script>
-    const form = document.getElementById('loginForm');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-
-      try {
-        const res = await fetch('https://pingme-backend-1.onrender.com/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, password }),
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('userId', data.user._id); // optional
-          window.location.href = '/index.html';
-        } else {
-          alert(data.message || 'Login failed');
-        }
-      } catch (err) {
-        alert('An error occurred. Please try again.');
-        console.error(err);
-      }
-    });
-  </script>
+    <form action="https://pingme-backend-1.onrender.com/login" method="POST">
+        <h1>Login</h1>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p><a href="https://pingme-frontend.vercel.app/forgot-password.html">Forgot Password?</a></p>
+        <p>Don't have an account? <a href="https://pingme-frontend.vercel.app/signup.html">Sign Up</a></p>
+    </form>
+    <a href="https://pingme-frontend.vercel.app/login.html">Login</a>
 </body>
 </html>
