@@ -124,5 +124,20 @@
     <footer>
         <p>&copy; 2025 PingMe. All rights reserved. | <a href="https://pingme-backend-1.onrender.com/terms">Terms</a> | <a href="https://pingme-backend-1.onrender.com/privacy">Privacy</a></p>
     </footer>
+
+    <script>
+        // Check if the user is logged in
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            const nav = document.querySelector('nav');
+            nav.innerHTML += `
+                <a href="#" id="logoutBtn">Logout</a>
+            `;
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                // Logout functionality
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = 'https://pingme-frontend.vercel.app/home.html';
+            });
+        }
+    </script>
 </body>
 </html>

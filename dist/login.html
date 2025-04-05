@@ -62,7 +62,7 @@
     </style>
 </head>
 <body>
-    <form action="https://pingme-backend-1.onrender.com/login" method="POST">
+    <form action="https://pingme-backend-1.onrender.com/login" method="POST" id="login-form">
         <h1>Login</h1>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
@@ -70,6 +70,30 @@
         <p><a href="https://pingme-frontend.vercel.app/forgot-password.html">Forgot Password?</a></p>
         <p>Don't have an account? <a href="https://pingme-frontend.vercel.app/signup.html">Sign Up</a></p>
     </form>
-    <a href="https://pingme-frontend.vercel.app/login.html">Login</a>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+            const formData = new FormData(e.target);
+            fetch('https://pingme-backend-1.onrender.com/login', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Store login status in localStorage and redirect to homepage
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = 'https://pingme-frontend.vercel.app/index.html';
+                } else {
+                    alert(data.message || 'Login failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            });
+        });
+    </script>
 </body>
 </html>
